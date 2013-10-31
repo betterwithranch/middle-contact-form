@@ -1,2 +1,2 @@
-require './mailer'
+require './app'
 run Sinatra::Application
