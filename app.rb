@@ -2,7 +2,7 @@ require 'sinatra'
 require 'pony'
 require 'json'
 
-# set :protection, :origin_whitelist => [ENV['white_site']]
+set :protection, :origin_whitelist => ["http://localhost:4567", "http://www.per-angusta.com"]
 
 Pony.options = {
   :via => :smtp,
@@ -24,7 +24,7 @@ post '/' do
   email = ""
   
   body  = params[:message]
-  body += "Tel: #{params[:phone]}"
+  body += "\n\nTel: #{params[:phone]}"
 
   
   content_type :json
