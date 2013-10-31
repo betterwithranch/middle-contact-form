@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'pony'
 
-set :protection, :origin_whitelist => [ENV['white_site']]
+# set :protection, :origin_whitelist => [ENV['white_site']]
 
 Pony.options = {
   :via => :smtp,
@@ -25,6 +25,5 @@ post '/' do
   params.each do |value|
     email += "#{value[0]}: #{value[1]}\n"
   end
-  puts email
-  # Pony.mail(:to => ENV['email_recipients'], :from => 'noreply@example.com', :subject => 'New Contact Form', :body => email)
+  Pony.mail(:to => ENV['email_recipients'], :from => 'contact@per-angusta.com', :subject => '[Per Angusta] New contact from website', :body => email)
 end
