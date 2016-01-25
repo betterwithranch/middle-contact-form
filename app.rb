@@ -2,7 +2,7 @@ require 'sinatra'
 require 'pony'
 require 'json'
 
-set :protection, :origin_whitelist => ["http://localhost:4567", "http://www.per-angusta.com"]
+set :protection, :origin_whitelist => ["http://localhost:4567", "http://www.per-angusta.com", "https://www.per-angusta.com", "http://per-angusta.com", "https://per-angusta.com"]
 
 Pony.options = {
   :via => :smtp,
