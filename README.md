@@ -1,28 +1,26 @@
-middleman-contact-form
-======================
+## Contact form for Middleman
 
-Simple sinatra application, intended for heroku to send emails from contact requests from a static middleman app deployed on s3.
+Simple sinatra application, intended for heroku to send emails from a static middleman app deployed on s3 with CORS enabled.
 
-You are going to want to create a heroku application for this.
+### Instructions
 
-`heroku create website-contact`
+    heroku create website-contact
+    heroku addons:add sendgrid:starter
+    heroku config:set email_recipients=you@website.com
+    heroku config:set email_subject="[WEBSITE] New contact from website"
+    heroku config:set website_url=http://www.website.com
 
-Then, you should go ahead and get sendgrid starter established. This will go ahead and add your sendgrid username and password. Huzzah automation.
-
-`heroku addons:add sendgrid:starter`
-
-While you have heroku open, go ahead and set up the following:
-
-```
-heroku config:set email_recipients="demo@password.com"
-heroku config:set white_site="http://www.yourstaticsite.com/"
-```
-
-On your static site, build a form where the action is the url of your newly created heroku application:
-
+You will then be able to send `POST` request with the following params:
 `<form action="https://website-contact.herokuapp.com/" "method="post">`
 
-TODO: 
+* name
+* email
+* message
+* phone
+
+Inspired from [middle-contact-form](https://github.com/evantravers/middleman-contact-form) (which didn't seemed to work properly :s) and added the CORS management in order to provide feedback to the users.
+
+### TODO: 
 
 - test framework
 - write a little errors library in js to include in the static site, all ajaxy like
