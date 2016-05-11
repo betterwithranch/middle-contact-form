@@ -3,7 +3,7 @@ require 'pony'
 require 'json'
 require 'sinatra/cross_origin'
 
-use Rack::Protection::HttpOrigin, origin_whitelist: ["http://localhost:4567", "http://www.per-angusta.com", "https://www.per-angusta.com", "http://per-angusta.com", "https://per-angusta.com"]
+use Rack::Protection::HttpOrigin, origin_whitelist: ["http://localhost:4567", "http://www.betterwithranch.com", "https://www.betterwithranch.com", "http://betterwithranch.com", "https://betterwithranch.com", "https://betterwithranch.github.io", "http://betterwithranch.github.io"]
 
 
 configure do
